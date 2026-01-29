@@ -22,3 +22,12 @@
   border: 1px solid black;
   padding: 10px;
 }
+
+@media (max-width: 768px) {
+  .titles { display: none; }
+  .values { grid-template-columns: 1fr; }
+  .value { border: none; padding: 10px 12px; }
+  .values .value:nth-child(1)::before { content: "ID: "; font-weight: 700; color: #49557e; display: inline-block; margin-bottom: 4px; }
+  .values .value:nth-child(2)::before { content: "Email: "; font-weight: 700; color: #49557e; display: inline-block; margin-bottom: 4px; }
+  .values { gap: 12px; }
+}

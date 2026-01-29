@@ -1,4 +1,7 @@
 .navBar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   padding: 15px;
   background: white;
   border-bottom: 1px solid #e8f5e8;
@@ -10,4 +13,8 @@
   font-size: 20px;
 }
 
+@media (max-width: 768px) {
+  .navBar { padding: 12px; }
+  .navBar h2 { font-size: 16px; }
+}
 

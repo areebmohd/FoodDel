@@ -31,3 +31,31 @@
   border: 1px solid black;
   outline: none;
 }
+
+@media (max-width: 768px) {
+  .orders-thead { display: none; }
+  .orders-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px;
+    border: none;
+    border-bottom: 1px solid #e8f5e8;
+    background: white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    margin-bottom: 8px;
+  }
+
+  .orders-row div {
+    padding: 6px 0;
+    border: none;
+  }
+
+  .orders-row div:nth-child(1)::before { content: "ID: "; font-weight: 700; color: #49557e; }
+  .orders-row div:nth-child(2)::before { content: "User: "; font-weight: 700; color: #49557e; }
+  .orders-row div:nth-child(3)::before { content: "Amount: "; font-weight: 700; color: #49557e; }
+  .orders-row div:nth-child(4)::before { content: "Status: "; font-weight: 700; color: #49557e; }
+  .orders-row div:nth-child(5)::before { content: "Payment: "; font-weight: 700; color: #49557e; }
+  .orders-row div:nth-child(6)::before { content: "Action: "; font-weight: 700; color: #49557e; }
+
+  .orders-row select { width: 100%; }
+}

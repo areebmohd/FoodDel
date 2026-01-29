@@ -53,20 +53,26 @@
 
 .food-item {
   display: grid;
-  grid-template-columns: 120px 1fr 150px 120px 2fr 100px;
+  grid-template-columns: 120px 1fr 130px 100px 2fr 100px;
   align-items: center;
-  gap: 15px;
-  padding: 16px 20px;
-  border-bottom: 1px solid #f0f0f0;
-  transition: background-color 0.3s ease;
+  gap: 18px;
+  padding: 18px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid #e8f5e8;
+  margin-bottom: 14px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
 }
 
 .food-item:hover {
-  background-color: #f8f9fa;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  background-color: #fbfffb;
 }
 
 .food-item:last-child {
-  border-bottom: none;
+  margin-bottom: 0;
 }
 
 .food-col {
@@ -84,17 +90,19 @@
 }
 
 .food-img {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f6f0;
 }
 
 .food-col.name {
-  font-weight: 600;
-  color: #49557e;
+  font-weight: 700;
+  color: #2d5a2d;
   font-size: 16px;
+  letter-spacing: .2px;
 }
 
 .food-col.category {
@@ -113,26 +121,31 @@
   color: #666;
   font-size: 14px;
   line-height: 1.4;
+  max-width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .delete-btn {
-  background-color: rgb(254, 182, 182);
-  color: red;
-  border: none;
+  background-color: #fff5f5;
+  color: #c0392b;
+  border: 1px solid rgba(192, 57, 43, 0.08);
   outline: none;
-  padding: 8px 16px;
+  padding: 8px 14px;
   border-radius: 8px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
 }
 
 .delete-btn:hover {
-  background-color: rgb(252, 165, 165);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background-color: #ffecec;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(192, 57, 43, 0.06);
 }
 
 .loading {
@@ -229,52 +242,67 @@
     display: none;
   }
 
+  /* Switch to a compact row layout so no blank space appears on the right */
   .food-item {
-    grid-template-columns: 80px 1fr;
-    grid-auto-rows: auto;
-    align-items: start;
-    row-gap: 8px;
-    padding: 16px;
-    margin-bottom: 12px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 14px;
+    margin-bottom: 14px;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     background: white;
-  }
-
-  .food-col {
-    justify-content: flex-start;
+    border: 1px solid #eef6ee;
   }
 
   .food-col.image {
+    flex: 0 0 72px;
+    display: flex;
+    align-items: center;
     justify-content: center;
   }
 
-  .food-col.price,
-  .food-col.action {
-    justify-content: flex-start;
-  }
-
-  .food-col.category::before {
-    content: "Category: ";
-    font-weight: 600;
-    color: #49557e;
-  }
-
-  .food-col.price::before {
-    content: "Price: ";
-    font-weight: 600;
-    color: #49557e;
-  }
-
-  .food-col.description::before {
-    content: "Description: ";
-    font-weight: 600;
-    color: #49557e;
-  }
-
   .food-img {
-    width: 60px;
-    height: 60px;
+    width: 72px;
+    height: 72px;
+    border-radius: 10px;
+  }
+
+  .food-col.name {
+    flex: 1 1 auto;
+    font-weight: 700;
+    color: #49557e;
+    margin-top: 2px;
+  }
+
+  .food-col.category,
+  .food-col.price {
+    color: #49557e;
+    font-weight: 600;
+    font-size: 13px;
+    margin-top: 6px;
+  }
+
+  .food-col.description {
+    width: 100%;
+    margin-top: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .food-col.action {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  /* Ensure price and action don't force extra width; move action below on very small screens */
+  @media (max-width: 420px) {
+    .food-item { flex-direction: column; }
+    .food-col.action { width: 100%; margin-top: 8px; justify-content: flex-start; }
   }
 }
 
