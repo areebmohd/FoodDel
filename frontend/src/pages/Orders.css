@@ -81,3 +81,8 @@
   background: #fee2e2;
   color: #991b1b;
 }
+@media (max-width: 1240px) {
+  .orders-page h2 {
+    margin-top: 10px;
+  }
+}

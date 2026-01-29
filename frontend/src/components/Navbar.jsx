@@ -15,7 +15,7 @@ const Navbar = ({ setShowLoginPage, value, setValue }) => {
 
   return (
     <div className="navbar">
-      <h2 className="navLeft">Fooddel</h2>
+      <h2 className="navLeft">FoodDel</h2>
       <ul className="navMid">
         <Link
           to="/"
@@ -56,13 +56,6 @@ const Navbar = ({ setShowLoginPage, value, setValue }) => {
           className={value === "About" ? "active" : "link"}
         >
           About
-        </a>
-        <a
-          href="#footer"
-          onClick={() => setValue("Contact")}
-          className={value === "Contact" ? "active" : "link"}
-        >
-          Contact
         </a>
       </ul>
       {user ? (

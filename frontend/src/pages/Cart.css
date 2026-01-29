@@ -180,6 +180,10 @@
 }
 
 @media (max-width: 1240px) {
+  .cart {
+    padding-top: 35px;
+    gap: 10px;
+  }
   .top {
     grid-template-columns: 80px 1fr 90px 90px 90px 70px;
     padding: 10px 12px;

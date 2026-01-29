@@ -69,4 +69,16 @@
     position: absolute;
     top: 55px;
   }
+  .navRight {
+    gap: 10px;
+  }
+
+  .navRight .btn {
+    padding: 3px 10px;
+    font-size: 13px;
+  }
+
+  .user-email {
+    font-size: 12px;
+  }
 }
