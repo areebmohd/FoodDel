@@ -5,16 +5,16 @@ import "./Sidebar.css";
 const Sidebar = () => {
   return (
     <div className="sideBar">
-      <NavLink to="/" className="link">
+      <NavLink to="/" className={({isActive}) => isActive ? "link active" : "link"}>
         Add Item
       </NavLink>
-      <NavLink to="/list" className="link">
+      <NavLink to="/list" className={({isActive}) => isActive ? "link active" : "link"}>
         List Items
       </NavLink>
-      <NavLink to="/orders" className="link">
+      <NavLink to="/orders" className={({isActive}) => isActive ? "link active" : "link"}>
         Orders
       </NavLink>
-      <NavLink to="/users" className="link">
+      <NavLink to="/users" className={({isActive}) => isActive ? "link active" : "link"}>
         Users
       </NavLink>
     </div>
