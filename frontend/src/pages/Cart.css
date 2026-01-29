@@ -20,6 +20,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-top: 12px;
 }
 
 .cart-footer {
@@ -202,19 +203,117 @@
 }
 
 @media (max-width: 720px) {
+  .cart {
+    padding: 16px 8px;
+  }
+  
   .top {
     display: none;
   }
+  
   .cart-row {
-    grid-template-columns: 80px 1fr;
-    grid-auto-rows: auto;
+    display: grid;
+    grid-template-columns: 92px 1fr auto;
+    grid-template-areas:
+      "img name actions"
+      "img price price"
+      "img quantity quantity"
+      "img total total";
     align-items: start;
-    row-gap: 6px;
+    column-gap: 12px;
+    row-gap: 8px;
+    padding: 14px;
   }
+  
+  .cart-col.item {
+    grid-area: img;
+    align-self: start;
+  }
+  
+  .cart-col.name {
+    grid-area: name;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.25;
+    padding-top: 2px;
+  }
+  
   .cart-col.price,
   .cart-col.quantity,
-  .cart-col.total,
+  .cart-col.total {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid #f3f3f3;
+    font-size: 14px;
+  }
+  
+  .cart-col.price {
+    grid-area: price;
+  }
+
+  .cart-col.quantity {
+    grid-area: quantity;
+  }
+
+  .cart-col.total {
+    grid-area: total;
+  }
+
+  .cart-col.price::before {
+    content: "Unit Price:";
+    font-weight: 500;
+    color: #666;
+  }
+  
+  .cart-col.quantity::before {
+    content: "Quantity:";
+    font-weight: 500;
+    color: #666;
+  }
+  
+  .cart-col.total::before {
+    content: "Total:";
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .cart-col.total {
+    border-bottom: none;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  
   .cart-col.actions {
-    justify-content: flex-start;
+    grid-area: actions;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .cart-item-img {
+    width: 92px;
+    height: 92px;
+    border-radius: 12px;
+  }
+
+  .cut-btn {
+    padding: 6px 12px;
+    font-size: 16px;
+  }
+  
+  .cart-footer {
+    justify-content: center;
+  }
+  
+  .clear-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .summary-section {
+    margin-top: 20px;
   }
 }
