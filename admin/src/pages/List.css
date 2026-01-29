@@ -322,7 +322,7 @@
 
   .food-item {
     padding: 12px;
-    margin-bottom: 10px;
+    gap: 5px;
   }
 
   .food-img {
