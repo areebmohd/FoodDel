@@ -355,7 +355,7 @@
     grid-template-columns: 72px 1fr;
     padding: 12px;
     column-gap: 10px;
-    row-gap: 6px;
+    row-gap: 2px;
   }
 
   .food-img {
