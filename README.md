@@ -6,6 +6,11 @@ A **full-stack food delivery web application** built using the **MERN stack** (M
 
 ---
 
+## ⭐ Main Goal
+
+It is demo for a public food delivery site that delivers food from online orders. It has menu, cart and online payment.
+Realtime access to order info and account login. Admin has access to admin panel that can add food items in the site, view users and orders.
+
 ## 🛠️ Features
 
 ✔ Full **MERN stack architecture** (React + Node + Express + MongoDB)
