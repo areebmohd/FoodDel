@@ -65,6 +65,16 @@ const PlaceOrder = ({setValue}) => {
 
     if (cartItems.length === 0) return;
 
+    // Validate all delivery fields
+    const requiredFields = ["name", "email", "phone", "address", "pincode", "city", "state", "country"];
+    for (const field of requiredFields) {
+      if (!form[field] || !form[field].trim()) {
+        alert(`Please fill in the ${field} field.`);
+        return;
+      }
+    }
+
+
     setSubmitting(true);
     try {
       // 1) Create order on backend and get Razorpay order id
@@ -232,7 +242,7 @@ const PlaceOrder = ({setValue}) => {
       <div className="order-grid">
         <div className="user-form-box">
           <p className="box-title">Delivery Details</p>
-          <form className="form-grid" onSubmit={onSubmit}>
+          <form className="form-grid" onSubmit={onSubmit} id="delivery-form">
             <input
               name="name"
               value={form.name}
@@ -268,24 +278,28 @@ const PlaceOrder = ({setValue}) => {
               value={form.pincode}
               onChange={onChange}
               placeholder="Pin Code"
+              required
             />
             <input
               name="city"
               value={form.city}
               onChange={onChange}
               placeholder="City"
+              required
             />
             <input
               name="state"
               value={form.state}
               onChange={onChange}
               placeholder="State"
+              required
             />
             <input
               name="country"
               value={form.country}
               onChange={onChange}
               placeholder="Country"
+              required
             />
           </form>
         </div>
@@ -306,7 +320,8 @@ const PlaceOrder = ({setValue}) => {
           <button
             className="pay-btn"
             disabled={cartItems.length === 0 || submitting}
-            onClick={onSubmit}
+            type="submit"
+            form="delivery-form"
           >
             {submitting ? "Processing..." : "Make Payment"}
           </button>

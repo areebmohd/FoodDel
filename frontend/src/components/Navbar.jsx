@@ -60,7 +60,10 @@ const Navbar = ({ setShowLoginPage, value, setValue }) => {
       </ul>
       {user ? (
         <div className="navRight">
-          <span className="user-email">{user.email}</span>
+          <span className="user-email desktop-email">{user.email}</span>
+          <span className="user-email mobile-email">
+            {user.email.includes("@") ? `${user.email.split("@")[0]}...` : user.email}
+          </span>
           <button className="btn" onClick={handleLogout}>
             Logout
           </button>

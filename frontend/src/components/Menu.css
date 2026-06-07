@@ -1,103 +1,208 @@
 .menu {
-  margin-top: 15px;
-  margin-bottom: 50px;
+  margin-top: 40px;
+  margin-bottom: 80px;
+  width: 100%;
 }
+
 .loading {
   text-align: center;
-  font-size: 24px;
-  color: #666;
-  padding: 50px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 80px 0;
 }
+
 .categories {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  padding-top: 20px;
-  padding-bottom: 30px;
+  gap: 24px;
+  padding: 24px 0 40px 0;
   align-items: center;
+  width: 100%;
 }
+
 .heading {
-  font-size: xx-large;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+  position: relative;
+  padding-bottom: 8px;
 }
+
+.heading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 45px;
+  height: 4px;
+  background-color: var(--primary);
+  border-radius: var(--radius-full);
+}
+
 .mainMenu {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 60px;
+  width: 100%;
+  margin-top: 20px;
 }
+
 .foodBox {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-card);
   border-radius: 20px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
 }
+
 .foodBox:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(0, 128, 0, 0.15);
 }
+
+/* Image container sizing matching original dimensions */
 .foodBox img {
   height: 250px;
   width: 450px;
+  object-fit: cover;
+  transition: var(--transition);
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
 }
+
 .drinks img {
   height: 350px;
   width: 350px;
+  object-fit: cover;
 }
+
+.foodBox:hover img {
+  transform: scale(1.03);
+}
+
 .content {
   padding: 20px;
-  padding-top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
+
 .title {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
 }
-.title p {
-  font-size: x-large;
+
+.titleLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
-.description {
-  color: rgb(58, 58, 58);
+
+.name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.25;
 }
+
+.price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.titleRight {
+  flex-shrink: 0;
+}
+
 .cartButton {
-  background-color: rgb(220, 252, 231);
-  padding: 10px 30px;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  padding: 8px 18px;
   border: none;
   outline: none;
-  width: fit-content;
-  border-radius: 30px;
-  font-size: large;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: var(--radius-full);
   cursor: pointer;
+  transition: var(--transition);
 }
+
 .cartButton:hover {
-  background-color: rgb(205, 253, 222);
+  background-color: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2);
 }
+
 .icons {
   display: flex;
   align-items: center;
-  gap: 15px;
+  background-color: #f1f5f9;
+  padding: 4px 6px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-light);
+  gap: 12px;
 }
+
 .icon {
-  padding: 1px 13px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  font-size: 30px;
+  font-size: 1rem;
+  font-weight: 800;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  user-select: none;
+}
+
+.plus {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+.plus:hover {
+  background-color: var(--primary-hover);
+}
+
+.minus {
+  background-color: #ffffff;
+  color: var(--text-muted);
+  border: 1px solid var(--border-light);
+}
+
+.minus:hover {
+  color: var(--error);
+  border-color: var(--error-hover);
+}
+
+.quantity {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  min-width: 16px;
   text-align: center;
 }
-.plus {
-  background-color: rgb(173, 253, 173);
-  color: green;
+
+.description {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
-.minus {
-  background-color: rgb(254, 182, 182);
-  color: red;
-}
-.quantity {
-  font-size: large;
-}
+
 @media (max-width: 1240px) {
   .menu {
     margin-top: 0px;
